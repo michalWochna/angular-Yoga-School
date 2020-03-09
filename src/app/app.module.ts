@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { MenuComponent } from './menu/menu.component';
+import { AlertComponent } from './Alert/alert.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EnvironmentUrlService } from './services/environment-url.service';
 import { LoginComponent } from './Login/login/login.component';
@@ -31,7 +32,7 @@ import { AlertService } from './services/alert.service';
        ])
    
       ],
-  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent ],
+  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent, AlertComponent ],
   bootstrap:    [ AppComponent],
   providers: [EnvironmentUrlService,RepositoryService, AlertService]
 })
