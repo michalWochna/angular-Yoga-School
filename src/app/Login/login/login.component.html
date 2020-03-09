@@ -24,13 +24,11 @@
             <span *ngIf="this.loading" class="spinner-border spinner-border-sm mr-1"></span>
             Login
         </button>
-        <a routerLink="/register" class="btn btn-link">Register</a>
+        <a [routerLink]="['/Register']" class="btn btn-link">Register</a>
     </div>
     </form>
   
-<p>
-  {{response}}
-</p>
+
 
 
   

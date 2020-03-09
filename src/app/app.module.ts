@@ -14,6 +14,7 @@ import { EnvironmentUrlService } from './services/environment-url.service';
 import { LoginComponent } from './Login/login/login.component';
 import { RepositoryService } from './../repository/repository.service';
 import { AlertService } from './services/alert.service';
+import { RegisterComponent } from './Register/register/register.component';
 
 
 
@@ -27,12 +28,13 @@ import { AlertService } from './services/alert.service';
        {path:"Hello",component:HelloComponent},
        {path:"404", component:NotFoundComponent},
        {path:"Login", component:LoginComponent},
+       {path:"Register", component:RegisterComponent},
        {path:'',redirectTo:'/',pathMatch:'full'},
        {path:'**',redirectTo:'/404',pathMatch:'full'}
        ])
    
       ],
-  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent, AlertComponent ],
+  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent, AlertComponent, RegisterComponent ],
   bootstrap:    [ AppComponent],
   providers: [EnvironmentUrlService,RepositoryService, AlertService]
 })
