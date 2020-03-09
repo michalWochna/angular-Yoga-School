@@ -16,16 +16,13 @@ export class RepositoryService {
   
   }
 
-public login (route: string, body) {
+public post (route: string, body) {
   const headers = new HttpHeaders().set('Content-Type', 'application/json');
   return this.http.post(this.createCompleteRoute(route, this.envUrl.url), body, { headers, responseType: 'text'})
   .pipe(
       catchError(this.handleError)
     );
 }
-  public create(route: string, body) {
-    return this.http.post(this.createCompleteRoute(route, this.envUrl.url), body, this.generateHeaders());
-  }
  
   public update(route: string, body){
     return this.http.put(this.createCompleteRoute(route, this.envUrl.url), body, this.generateHeaders());
@@ -58,7 +55,11 @@ public login (route: string, body) {
       `body was: ${error.error}`);
   }
   // return an observable with a user-facing error message
+
+  if (error.status == 0){return throwError("Unknown error")};
+
   return throwError(
+    
     error.error.replace("[","").replace("]","").replace('"','').replace('"',''));
 };
 }
