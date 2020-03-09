@@ -13,7 +13,7 @@
 
       
       <div class="form-group">
-        <input type="text" id="password" class="form-control" name="password" placeholder="password"  formControlName="password" [ngClass]="{'is-invalid':this.submitted && this.form.get('password').errors}">
+        <input type="password" id="password" class="form-control" name="password" placeholder="password"  formControlName="password" [ngClass]="{'is-invalid':this.submitted && this.form.get('password').errors}">
       
         <div *ngIf="this.submitted && this.form.get('password').errors" class="invalid-feedback">
           <div *ngIf="this.submitted && this.form.get('password').errors.required">Password is required</div>
