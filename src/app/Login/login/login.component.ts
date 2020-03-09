@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 import { RepositoryService } from './../../../repository/repository.service';
 import { AlertService } from './../../services/alert.service';
@@ -17,8 +17,8 @@ public loading;
 
   constructor(public repo: RepositoryService,public fb: FormBuilder, public alert: AlertService) {
     this.form = this.fb.group({
-      login: [''],
-      password: ['']
+      login: ['',Validators.required],
+      password: ['',Validators.required]
     })
   }
  ngOnInit() { }
@@ -26,6 +26,9 @@ public loading;
    this.submitted = true;
  
    this.alert.clear();
+   if (this.form.invalid){
+     return;
+   }
    this.loading = true;
     this.repo.login('Users/(Login)',{name:this.form.get('login').value,password:this.form.get('password').value}).subscribe(res => {
         localStorage.setItem('JWT', res) ;

@@ -4,14 +4,24 @@
     <!-- Login Form -->
     <form  [formGroup] = "form" (ngSubmit)="onSubmit()">
       <div class="form-group">
-      <input type="text" id="login" class="form-control" name="login" placeholder="login" required
-        formControlName="login">
-
-
+        <input type="text" id="login" class="form-control" name="login" placeholder="login"
+          formControlName="login" [ngClass]="{'is-invalid':this.submitted && this.form.get('login').errors}">
+        <div *ngIf="this.submitted && this.form.get('login').errors" class="invalid-feedback">
+          <div *ngIf="this.submitted && this.form.get('login').errors.required">User name is required</div>
+        </div>
       </div>
+
+      
       <div class="form-group">
-      <input type="text" id="password" class="form-control" name="password" placeholder="password" formControlName="password">
+        <input type="text" id="password" class="form-control" name="password" placeholder="password"  formControlName="password" [ngClass]="{'is-invalid':this.submitted && this.form.get('password').errors}">
+      
+        <div *ngIf="this.submitted && this.form.get('password').errors" class="invalid-feedback">
+          <div *ngIf="this.submitted && this.form.get('password').errors.required">Password is required</div>
+        </div>
       </div>
+
+      
+
       <input type="submit" class="btn btn-success" value="Log In">
     </form>
   
