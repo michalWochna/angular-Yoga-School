@@ -12,7 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { EnvironmentUrlService } from './services/environment-url.service';
 import { LoginComponent } from './Login/login/login.component';
 import { RepositoryService } from './../repository/repository.service';
-import { AlertServiceService } from './services/alert-service.service';
+import { AlertService } from './services/alert.service';
 
 
 
@@ -33,6 +33,6 @@ import { AlertServiceService } from './services/alert-service.service';
       ],
   declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent ],
   bootstrap:    [ AppComponent],
-  providers: [EnvironmentUrlService,RepositoryService, AlertServiceService]
+  providers: [EnvironmentUrlService,RepositoryService, AlertService]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
-{{diagnostic}}
-  <div class="container">
+<h2>Login</h2>
+  
 
     <!-- Login Form -->
-    <form class="form-inline" [formGroup] = "form" (ngSubmit)="onSubmit()">
+    <form  [formGroup] = "form" (ngSubmit)="onSubmit()">
       <div class="form-group">
       <input type="text" id="login" class="form-control" name="login" placeholder="login" required
-        formControlName="login" #spy>
+        formControlName="login">
 
 
       </div>
@@ -14,7 +14,7 @@
       </div>
       <input type="submit" class="btn btn-success" value="Log In">
     </form>
-  </div>
+  
 <p>
   {{response}}
 </p>

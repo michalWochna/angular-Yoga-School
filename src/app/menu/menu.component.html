@@ -1,14 +1,14 @@
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
     <div class="navbar-header">
       <a class="navbar-brand" [routerLink]="['/Hello']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Yoga school</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">Classes</a></li>
-      <li><a href="#">Types</a></li>
-      <li><a href="#">Levels</a></li>
-      <li><a  [routerLink]="['/Login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sign in</a></li>
+      <li><a class="nav-item nav-link" href="#">Classes</a></li>
+      <li><a class="nav-item nav-link" href="#">Types</a></li>
+      <li><a class="nav-item nav-link" href="#">Levels</a></li>
+      <li><a  class="nav-item nav-link" [routerLink]="['/Login']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Sign in</a></li>
     </ul>
   </div>
 </nav>
