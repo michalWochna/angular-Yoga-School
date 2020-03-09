@@ -19,10 +19,13 @@
           <div *ngIf="this.submitted && this.form.get('password').errors.required">Password is required</div>
         </div>
       </div>
-
-      
-
-      <input type="submit" class="btn btn-success" value="Log In">
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="this.loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+        </button>
+        <a routerLink="/register" class="btn btn-link">Register</a>
+    </div>
     </form>
   
 <p>
