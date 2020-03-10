@@ -42,8 +42,8 @@ public loading;
       email:this.form.get('email').value
     }
     ).subscribe(res => {
-        this.alert.success('Registration successful', true);
-        this.router.navigate(['/login']);
+        this.alert.success('Registration email sent to' + this.form.get('email').value +'. Open this email to finish signup.', true);
+        this.router.navigate(['/']);
       },
       (error) => {
         localStorage.setItem('JWT', error)

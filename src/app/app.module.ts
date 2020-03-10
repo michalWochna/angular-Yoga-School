@@ -15,6 +15,7 @@ import { LoginComponent } from './Login/login/login.component';
 import { RepositoryService } from './../repository/repository.service';
 import { AlertService } from './services/alert.service';
 import { RegisterComponent } from './Register/register/register.component';
+import { EmailConfirmationComponent } from './Register/email-confirmation/email-confirmation.component';
 
 
 
@@ -29,12 +30,13 @@ import { RegisterComponent } from './Register/register/register.component';
        {path:"404", component:NotFoundComponent},
        {path:"Login", component:LoginComponent},
        {path:"Register", component:RegisterComponent},
+       {path:"ConfirmEmail", component:EmailConfirmationComponent},
        {path:'',redirectTo:'/',pathMatch:'full'},
        {path:'**',redirectTo:'/404',pathMatch:'full'}
        ])
    
       ],
-  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent, AlertComponent, RegisterComponent ],
+  declarations: [ AppComponent, HelloComponent, MenuComponent, NotFoundComponent, LoginComponent, AlertComponent, RegisterComponent, EmailConfirmationComponent ],
   bootstrap:    [ AppComponent],
   providers: [EnvironmentUrlService,RepositoryService, AlertService]
 })
