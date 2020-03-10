@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RepositoryService } from './../../../repository/repository.service';
+import { AlertService } from './../../services/alert.service';
 
 @Component({
   selector: 'app-email-confirmation',
@@ -9,12 +11,40 @@ import { ActivatedRoute } from '@angular/router';
 export class EmailConfirmationComponent implements OnInit {
 public token:string;
 public email:string;
+public resend:string;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,public repo: RepositoryService,public alert: AlertService,private router: Router) { }
   
 
   ngOnInit() {
+    
     this.token = this.route.snapshot.queryParamMap.get('tokenConfirmEmail');
     this.email = this.route.snapshot.queryParamMap.get('email');
+    console.log('Users/(ConfirmEmail)?tokenConfirmEmail=' + this.token+ '&email='+this.email);
+    this.repo.getData('Users/(ConfirmEmail)?tokenConfirmEmail=' + this.token+ '&email='+this.email
+    ).subscribe(
+      res=> {
+        localStorage.setItem('JWT', res);
+        this.alert.success('Registration successful', true);
+        
+      },
+      error=>{
+        console.log(error.error);
+        this.alert.error(error.error);
+        localStorage.setItem('JWT', error);
+        this.repo.getData('Users/ResendVerificationEmail?email='+this.email
+        ).subscribe(
+      res=> {
+        
+        this.alert.success('Verification email sent successfully', true);
+        
+      },
+      error=>{
+        console.log(error.error);
+        this.alert.error(error.error);
+      }
+        )
+      }
+    )
   }
 }

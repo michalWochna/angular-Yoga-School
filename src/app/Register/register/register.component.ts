@@ -19,7 +19,7 @@ public loading;
     public repo: RepositoryService,
     public fb: FormBuilder,
     public alert: AlertService,
-    private router: Router,)
+    private router: Router)
    {
     this.form = this.fb.group({
       username: ['',Validators.required],
@@ -42,7 +42,7 @@ public loading;
       email:this.form.get('email').value
     }
     ).subscribe(res => {
-        this.alert.success('Registration email sent to' + this.form.get('email').value +'. Open this email to finish signup.', true);
+        this.alert.success('Registration email sent to ' + this.form.get('email').value +'. Open this email to finish signup.', true);
         this.router.navigate(['/']);
       },
       (error) => {

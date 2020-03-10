@@ -11,7 +11,7 @@ export class RepositoryService {
   constructor(private http:HttpClient, private envUrl:EnvironmentUrlService) { }
 
   public getData(route:string)
-  {
+  {console.log(this.createCompleteRoute(route, this.envUrl.url));
     return this.http.get(this.createCompleteRoute(route, this.envUrl.url));
   
   }
