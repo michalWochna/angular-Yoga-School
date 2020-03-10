@@ -32,11 +32,12 @@ public resend:string;
         console.log(error.error);
         this.alert.error(error.error);
         localStorage.setItem('JWT', error);
-        this.repo.getData('Users/ResendVerificationEmail?email='+this.email
+        console.log('Resend: Users/ResendVerificationEmail?email='+ this.email);
+        this.repo.getData('Users/(ResendVerificationEmail)?email='+ this.email
         ).subscribe(
       res=> {
         
-        this.alert.success('Verification email sent successfully', true);
+        this.alert.success('Verification email has been resent successfully', true);
         
       },
       error=>{
