@@ -20,8 +20,8 @@ public resend:string;
     
     this.token = this.route.snapshot.queryParamMap.get('tokenConfirmEmail');
     this.email = this.route.snapshot.queryParamMap.get('email');
-    console.log('Users/(ConfirmEmail)?tokenConfirmEmail=' + this.token+ '&email='+this.email);
-    this.repo.getData('Users/(ConfirmEmail)?tokenConfirmEmail=' + this.token+ '&email='+this.email
+    
+    this.repo.post('Users/(ConfirmEmail)?tokenConfirmEmail=' + this.token+ '&email='+this.email,""
     ).subscribe(
       res=> {
         localStorage.setItem('JWT', res);
@@ -37,7 +37,7 @@ public resend:string;
         ).subscribe(
       res=> {
         
-        this.alert.success('Verification email has been resent successfully', true);
+        this.alert.success('Link has expired. Verification email has been resent', true);
         
       },
       error=>{
